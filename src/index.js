@@ -1,20 +1,40 @@
+//Modules
 import express from 'express';
-import nodemon from 'nodemon';
 import dotenv from 'dotenv';
 import cors from 'cors';
-import Joi from 'joi';
 
-import { MongoClient } from 'mongodb';
+//Routes
+// import RegistersRoutes from "../Routes/RegistersRoutes.js";
+// import SignInRoutes from "../Routes/SignInRoutes.js";
+// import SignUpRoutes from "../Routes/SignUpRoutes.js";
 
-dotenv.config();
-
+//App
 const app = express();
-app.use(express.json());
-app.use(cors());
 dotenv.config();
 
+//App use modules
+app.use(cors());
+app.use(express.json());    
+
+//App use routes
+//app.use(RegistersRoutes);
+//app.use(SignInRoutes);
+//app.use(SignUpRoutes);
+
+// Start Nodemon --> npx nodemon src/index.js 
+// Clear port --> fuser -k 5000/tcp
+// Start MongoDB --> mongod --dbpath ~/.mongo
+// Connect MongoDB --> use mywallet
 
 
-
-const port = 5000;
-app.listen(port, () => console.log(`Listening on port ${port}...`));
+//Server
+const port = process.env.PORT;
+app.listen(port, () => {
+console.log("___________________________________________________");
+console.log("|  ||  /|                                           |");
+console.log("|  |/_|/     ☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆   |");
+console.log(`|  /. .|     Server is running on port ${port}...   |`);
+console.log("| =|_Y_|=    ☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆   |");
+console.log("|  {>o<}                                            |");
+console.log("|___________________________________________________|");
+});
